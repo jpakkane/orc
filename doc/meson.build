@@ -13,10 +13,13 @@ if not meson.is_cross_build()
   # FIXME: hack to copy these files from the source dir into the build dir,
   # should really be an option to gnome.gtkdoc() if tools can be made to
   # look in the srcdir as well.
-if false
   content_files = [ 'building.xml', 'concepts.xml', 'opcode_table.xml',
                     'opcodes.xml', 'program.xml', 'running.xml',
-                    'tutorial.xml', 'table.xml' ]
+                    'tutorial.xml', 'table.xml',
+                    'orc-docs.sgml',
+                    'orc-sections.txt',
+                    'orc-overrides.txt',
+                    'orc.types' ]
 
   # FIXME: these just need to be copied from srcdir to builddir
   dummy_config = configuration_data()
@@ -25,7 +28,6 @@ if false
                     output : f,
                     configuration : dummy_config)
   endforeach
-endif
 
   # FIXME: there should be a way to specify the gtk-doc requirement
   # html_args : '--path=' + meson.current_build_dir() + ':' + meson.current_source_dir(),
