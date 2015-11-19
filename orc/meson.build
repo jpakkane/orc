@@ -119,7 +119,7 @@ else
   link_args = []
 endif
 
-orc_lib = static_library('orc-' + orc_api, orc_sources,
+orc_lib = library('orc-' + orc_api, orc_sources,
   include_directories : orc_inc,
   c_args : orc_c_args,
   dependencies : orc_dependencies,

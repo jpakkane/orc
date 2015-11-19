@@ -88,10 +88,10 @@ config_h.set('VERSION', '"' + meson.project_version() + '"')
 
 subdir('orc')
 subdir('orc-test')
-subdir('doc')
-#subdir('examples')
 subdir('tools')
-#subdir('testsuite')
+subdir('testsuite')
+subdir('doc')
+subdir('examples')
 
 # FIXME: pkg-config file
 # missing: exec_prefix=${prefix}

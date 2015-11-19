@@ -7,4 +7,5 @@ orc_test_lib = static_library('orc-test-' + orc_api, orc_test_sources,
   include_directories : orc_inc,
   c_args : [ orc_c_args , '-DORC_ENABLE_UNSTABLE_API' ],
   link_with: orc_lib,
+  dependencies : [libm],
   install : true)

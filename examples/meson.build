@@ -8,12 +8,12 @@ if not meson.is_cross_build()
     orc_c = custom_target (ex + 'orc.c',
                            output : ex + 'orc.c',
                            input : meson.current_source_dir() + '/' + ex + 'orc.orc',
-                           command : [ find_program('orcc'), '--include', 'stdint.h', '--implementation', '-o', '@OUTPUT@', '@INPUT@'])
+                           command : [ orcc, '--include', 'stdint.h', '--implementation', '-o', '@OUTPUT@', '@INPUT@'])
 
     orc_h = custom_target (ex + 'orc.h',
                            output : ex + 'orc.h',
                            input : meson.current_source_dir() + '/' + ex + 'orc.orc',
-                           command : [ find_program('orcc'), '--include', 'stdint.h', '--header', '-o', '@OUTPUT@', '@INPUT@'])
+                           command : [ orcc, '--include', 'stdint.h', '--header', '-o', '@OUTPUT@', '@INPUT@'])
 
     executable (ex, [ ex + '.c', orc_h, orc_c ],
                 install: false,
