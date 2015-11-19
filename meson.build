@@ -3,7 +3,8 @@ project ('Orc', 'c', version : '0.4.24.1',
                      meson_version : '>= 0.27.0',
                      default_options : [ 'buildtype=debugoptimized',
                                          'warning_level=1',
-                                         'c_std=gnu99' ] )
+                                         'c_std=gnu99',
+                                         'werror=true'] )
 
 orc_api = '0.4'
 
@@ -11,8 +12,6 @@ add_global_arguments('-DHAVE_CONFIG_H', language : 'c')
 
 if meson.project_version().split('.').length() == 4
 message('git version')
-# FIXME: should set werror somehow via meson project() as default so user can override using standard means
-add_global_arguments('-Werror', language : 'c')
 else
 message('release version')
 endif
